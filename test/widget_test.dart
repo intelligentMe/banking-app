@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:basic_banking/main.dart';
+import 'package:basic_banking/screens/login.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Home widget renders correctly and contains expected elements', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(MaterialApp(home: Home()));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that the "Basic Banking" text is displayed.
+    expect(find.text('Basic Banking'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify that the "Sign in with Google" button is present.
+    expect(find.text('Sign in with Google'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that the "by vivek9patel" text is displayed.
+    expect(find.text('by vivek9patel'), findsOneWidget);
+
+    // Verify that the button's child includes the Google logo.
+    expect(find.byWidgetPredicate(
+      (widget) =>
+        widget is Row &&
+        widget.children.any((child) =>
+          child is Image && child.image == AssetImage("images/google_logo.png")
+        ),
+      description: 'Google logo should be present in the button',
+    ), findsOneWidget);
   });
 }
+
