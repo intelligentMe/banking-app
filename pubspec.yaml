@@ -16,7 +16,7 @@ dependencies:
   google_sign_in: ^6.2.1
   firebase_core: ^2.15.0
   cloud_firestore: ^5.8.0
-  provider: ^6.2.3
+  provider: ^6.1.2
   another_flushbar: ^1.12.30
 
 dev_dependencies:
