@@ -15,10 +15,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Set up Flutter
-      uses: subosito/flutter-action@v3
+      uses: subosito/flutter-action@v2
       with:
         flutter-version: '1.22.6' # Use a version within the specified range
 
@@ -37,13 +37,13 @@ jobs:
         FLUTTER_ROOT: ${{ steps.flutter.outputs.flutter-root }}
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: release-apk
         path: build/app/outputs/flutter-apk/app-release.apk
 
     - name: Upload iOS App
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: release-ios
         path: build/ios/iphoneos/Runner.app
