@@ -15,7 +15,7 @@ dependencies:
   firebase_auth: ^4.6.0
   google_sign_in: ^6.1.0
   firebase_core: ^3.1.1
-  cloud_firestore: ^5.1.0
+  cloud_firestore: ^5.0.2
   provider: ^6.1.2
   another_flushbar: ^1.12.30
 
